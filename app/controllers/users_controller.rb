@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include Authenticable
 
   # GET /users
   def index

@@ -2,14 +2,10 @@
 
 class User < ApplicationRecord
   # Constants
-  KINDS = %i[associate coach financial].freeze
-
-  devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :validatable
-  include DeviseTokenAuth::Concerns::User
+  # KINDS = %i[associate coach financial].freeze
 
   # Validations
-  validates :name, :kind, :email, :password, :password_confirmation,
+  validates :name, :username, :email, :password_digest,
     presence: true
 
   validates :email,
@@ -18,6 +14,6 @@ class User < ApplicationRecord
     format: { with: /\A[^@\s]+@[^@\s]+\z/ }
 
   # Enumerize
-  extend Enumerize
-  enumerize :kind, in: KINDS, predicates: true
+  # extend Enumerize
+  # enumerize :kind, in: KINDS, predicates: true
 end

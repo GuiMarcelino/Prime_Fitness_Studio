@@ -7,9 +7,8 @@ RSpec.describe User do
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:name) }
-    it { is_expected.to validate_presence_of(:password_confirmation) }
-    it { is_expected.to validate_presence_of(:password) }
-    it { is_expected.to validate_presence_of(:kind) }
+    it { is_expected.to validate_presence_of(:username) }
+    it { is_expected.to validate_presence_of(:password_digest) }
     it { is_expected.to validate_presence_of(:email) }
 
     describe "email" do
@@ -33,9 +32,6 @@ RSpec.describe User do
         let(:errors_details) do
           [
             {
-              error: "is not an email"
-            },
-            {
               error: :invalid,
               value: "example_example"
             }
@@ -58,11 +54,7 @@ RSpec.describe User do
           [{
             error: :taken,
             value: "teste@gmail.com"
-          },
-            {
-              error: :taken,
-              value: "teste@gmail.com"
-            }]
+          }]
         end
 
         before do
@@ -79,11 +71,11 @@ RSpec.describe User do
     end
   end
 
-  describe "Enumerize" do
-    context "with kind" do
-      it "has associate, coach, and financial kinds" do
-        expect(User::KINDS).to eq(%i[associate coach financial])
-      end
-    end
-  end
+  # describe "Enumerize" do
+  #   context "with kind" do
+  #     it "has associate, coach, and financial kinds" do
+  #       expect(User::KINDS).to eq(%i[associate coach financial])
+  #     end
+  #   end
+  # end
 end
