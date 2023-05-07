@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :customers
-  
-  mount_devise_token_auth_for "User", at: "auth"
+  resources :activities
+
+
   get "/users", to: "users#index"
   get "/users/:id", to: "users#show"
 end
