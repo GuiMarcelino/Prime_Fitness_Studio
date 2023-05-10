@@ -1,6 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Customer do
+  describe "associations" do
+    it { is_expected.to have_many(:payments) }
+  end
+
   describe "validations" do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:gender) }

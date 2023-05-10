@@ -4,6 +4,9 @@ class Customer < ApplicationRecord
   # Constants
   GENDER = %i[female male other].freeze
 
+  # Relationship
+  has_many :payments
+
   # Validations
   validates :active, :email, :gender, :name, :phone_number,
     presence: true
