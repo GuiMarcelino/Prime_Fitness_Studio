@@ -1,5 +1,4 @@
 class Payment < ApplicationRecord
-
   # Relationship
   belongs_to :customer
 

@@ -5,6 +5,11 @@ RSpec.describe User do
   let(:user_b) { build(:user, email: "example_example") }
   let(:user_c) { build(:user, email: "teste@gmail.com") }
 
+  describe "associations" do
+    it { is_expected.to have_many(:user_activities) }
+    it { is_expected.to have_many(:activities) }
+  end
+
   describe "validations" do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:username) }
