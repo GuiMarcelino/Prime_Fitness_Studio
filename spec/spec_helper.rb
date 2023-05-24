@@ -1,7 +1,7 @@
-require 'simplecov'
+require "simplecov"
 
 SimpleCov.start do
-  add_filter '/spec/' # ignora arquivos de teste
+  add_filter "/spec/" # ignora arquivos de teste
 end
 
 RSpec.configure do |config|
